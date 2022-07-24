@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>SAP Fiori Launchpad</title>
+
+
+	<script>
+		window["sap-ushell-config"] = {
+			defaultRenderer: "fiori2",
+			bootstrapPlugins: {
+	            "RuntimeAuthoringPlugin" : {
+	                "component": "sap.ushell.plugins.rta",
+	                config: {
+	                    validateAppVersion: false
+	                }
+	            }
+	        },
+			services: {
+				EndUserFeedback: {
+					config: {
+						enabled: false
+					}
+				},
+				SupportTicket: {
+					config: {
+						enabled: false
+					}
+				},
+			},
+			renderers:{
+				fiori2:{
+					bVisible:false,
+					componentData:{
+						config:{
+							
+							applications:{
+								"Shell-home":{
+									enableEasyAccessSAPMenu:false,
+									enableEasyAccess:false,
+									enableEasyAccessUserMenu:false,
+									enableEasyAccessUserMenuSearch:false
+								}
+							},
+							enablePersonalization: false,
+							enableSearch: false
+						}
+					},	
+				}
+			},
+			applications: {
+			}
+		};
+	</script>
+
+
+	<script src="https://sapui5.hana.ondemand.com/test-resources/sap/ushell/bootstrap/sandbox.js"></script>
+	<script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+    	data-sap-ui-libs="sap.m, sap.ushell, sap.collaboration, sap.ui.layout"
+		data-sap-ui-compatVersion="edge"
+
+		data-sap-ui-theme="sap_fiori_3"
+    	data-sap-ui-frameOptions="allow"
+	></script>
+	<script>
+			sap.ui.getCore().attachInit(function (oData) {
+				sap.ushell.Container.createRenderer('fiori2').placeAt("content")
+			});
+	</script>
+
+
+</head>
+<body class="sapUiBody" id="content"></body>
+</html>
+
+
+
+

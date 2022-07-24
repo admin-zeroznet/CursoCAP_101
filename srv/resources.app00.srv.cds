@@ -120,13 +120,10 @@ annotate app00.Resources with @(
     UI.FieldGroup#HeaderData : { Data : [
         { Value : id },
         { Value : country_code },
+        { Value : email },
+        { Value : phone },
     ]},
     UI.Facets : [     
-        {  
-            $Type  : 'UI.ReferenceFacet',
-            Target : '@UI.FieldGroup#OverviewData',
-            Label  : '{i18n>DATA}'
-        },
         {  
             $Type  : 'UI.ReferenceFacet',
             Target : 'skills/@UI.LineItem',
@@ -138,10 +135,6 @@ annotate app00.Resources with @(
             Label : '{i18n>CHART}',
         },
     ],
-    UI.FieldGroup#OverviewData : { Data : [
-        { Value : email },
-        { Value : phone },
-    ]},
 );
 
 annotate app00.Skills with @(
