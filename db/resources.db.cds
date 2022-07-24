@@ -24,9 +24,6 @@ annotate Resources with  {
 entity Areas :  SAP.CodeList {
     key code: String(5)
 };
-annotate Areas with {
-    descr  @Core.Immutable;
-};
 
 entity Skills {
     key area    : Association to Areas;

@@ -26,8 +26,17 @@ service app00 {
                                          ValueListProperty: 'id'},
                                     ],
                                 }
-                            }
+                            },
+                        desde: Date,
+                        hasta: Date
                     );
+    };
+
+    entity Skills as projection on DB.Skills {
+        area, 
+        resource,
+        level,
+        area.descr as area_descr
     };
 
     @readonly entity Projects as projection on DB.Projects;
@@ -40,6 +49,42 @@ annotate app00.Resources with {
                @Common.Text : country.name @Common.TextArrangement : #TextFirst;
 };
 
+annotate app00.Skills with {
+    area_descr  @readonly;
+};
+
+// -----------------------------  SECURITY -----------------------------
+ 
+annotate app00 with @(requires: ['director','gerente']);
+
+annotate app00.Resources with @(restrict: [
+    { grant: ['READ','Alta'], to: 'gerente', where: 'country_code = $user.paises' },
+    { grant: ['READ','UPDATE'], to: 'director' },
+  ]); 
+
+annotate app00.Skills with @(restrict: [
+    { grant: ['READ'], to: 'gerente' },
+    { grant: ['READ','UPDATE'], to: 'director' },
+  ]); 
+
+annotate app00.Countries with @(restrict: [
+    { grant: 'READ', to: 'gerente', where: 'code = $user.paises' },
+    { grant: ['READ'], to: 'director' },
+  ]); 
+
+// ------------------------------ ACTIONS ------------------------------
+
+annotate app00.Resources with @(
+
+    UI.Identification : [
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'resources.srv.app00.Alta',
+            Label : '{i18n>ASSIGN}',
+            Criticality : 3,
+        },
+    ],
+);
 
 // -----------------------------  LAYOUTS --------------------------------
 annotate app00.Resources with @(
@@ -86,7 +131,12 @@ annotate app00.Resources with @(
             $Type  : 'UI.ReferenceFacet',
             Target : 'skills/@UI.LineItem',
             Label  : '{i18n>SKILLS}'
-        }
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Target : 'skills/@UI.Chart',
+            Label : '{i18n>CHART}',
+        },
     ],
     UI.FieldGroup#OverviewData : { Data : [
         { Value : email },
@@ -97,7 +147,7 @@ annotate app00.Resources with @(
 annotate app00.Skills with @(
       UI.LineItem: [
         {Value: area_code },
-        {Value: area.descr },
+        {Value: area_descr },
 //      {Value: level },
         {
             $Type               : 'UI.DataFieldForAnnotation',
@@ -115,35 +165,83 @@ annotate app00.Skills with @(
 );
 
 
-// -----------------------------  SECURITY -----------------------------
- 
-annotate app00 with @(requires: ['director','gerente']);
+// ------------------------------ GRAPH ------------------------------
+annotate app00.Skills with @(
+    Aggregation.ApplySupported : {
+        Transformations          : [
+            'aggregate',
+            'topcount',
+            'bottomcount',
+            'identity',
+            'concat',
+            'groupby',
+            'filter',
+            'expand',
+            'top',
+            'skip',
+            'orderby',
+            'search'
+        ],
+        Rollup                   : #None,
+        PropertyRestrictions     : true,
+        GroupableProperties : [
+            area_code,
+        ],
+        AggregatableProperties : [
+            {
+                $Type : 'Aggregation.AggregatablePropertyType',
+                Property : level,
+                RecommendedAggregationMethod : 'sum',
+                SupportedAggregationMethods : [
+                    'min',
+                    'max',
+                    'sum'
+                ],
+            },
+        ],
+    }
+);
 
-annotate app00.Resources with @(restrict: [
-    { grant: ['READ','Alta'], to: 'gerente', where: 'country_code = $user.paises' },
-    { grant: ['READ','UPDATE'], to: 'director' },
-  ]); 
-
-annotate app00.Skills with @(restrict: [
-    { grant: ['READ'], to: 'gerente' },
-    { grant: ['READ','UPDATE'], to: 'director' },
-  ]); 
-
-annotate app00.Countries with @(restrict: [
-    { grant: 'READ', to: 'gerente', where: 'code = $user.paises' },
-    { grant: ['READ'], to: 'director' },
-  ]); 
-
-// ------------------------------ ACTIONS ------------------------------
-
-annotate app00.Resources with @(
-
-    UI.Identification : [
-        {
-            $Type : 'UI.DataFieldForAction',
-            Action : 'resources.srv.app00.Alta',
-            Label : '{i18n>ASSIGN}',
-            Criticality : 3,
-        },
+annotate app00.Skills with @(
+    Analytics.AggregatedProperties : [
+    {
+        Name                 : 'minAmount',
+        AggregationMethod    : 'min',
+        AggregatableProperty : 'level',
+        ![@Common.Label]     : 'Minimal Level'
+    },
+    {
+        Name                 : 'maxAmount',
+        AggregationMethod    : 'max',
+        AggregatableProperty : 'level',
+        ![@Common.Label]     : 'Maximun Level'
+    },
+    {
+        Name                 : 'sumAmount',
+        AggregationMethod    : 'sum',
+        AggregatableProperty : 'level',
+        ![@Common.Label]     : 'Level'
+    }
     ],
+);
+
+annotate app00.Skills with @(
+    UI.Chart : {
+        Title : '{i18n>LEVELCHART}',
+        ChartType : #Pie,
+        Measures :  [sumAmount],
+        Dimensions : [area_code],
+        MeasureAttributes   : [{
+                $Type   : 'UI.ChartMeasureAttributeType',
+                Measure : sumAmount,
+                Role    : #Axis1
+        }],
+        DimensionAttributes : [
+            {
+                $Type     : 'UI.ChartDimensionAttributeType',
+                Dimension : area_code,
+                Role      : #Category
+            },
+        ],
+    },
 );
