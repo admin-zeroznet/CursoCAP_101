@@ -1,16 +1,16 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Sun Jul 24 2022 11:58:29 GMT-0500 (hora de verano central)|
+|**Generation Date and Time**<br>Fri Jul 29 2022 19:28:14 GMT-0500 (hora de verano central)|
 |**App Generator**<br>@sap/generator-fiori-elements|
 |**App Generator Version**<br>1.6.1|
 |**Generation Platform**<br>Visual Studio Code|
 |**Floorplan Used**<br>List Report Object Page V4|
 |**Service Type**<br>Local Cap|
-|**Service URL**<br>http://localhost:4004/app00/
+|**Service URL**<br>http://localhost:4004/operaciones/control/v1/
 |**Module Name**<br>resources.app00|
-|**Application Title**<br>Resource Management|
-|**Namespace**<br>resources.app|
+|**Application Title**<br>App Title|
+|**Namespace**<br>|
 |**UI5 Theme**<br>sap_fiori_3|
 |**UI5 Version**<br>1.102.1|
 |**Enable Code Assist Libraries**<br>False|
@@ -20,7 +20,7 @@
 
 ## resources.app00
 
-Resource Management
+A Fiori application.
 
 ### Starting the generated app
 

@@ -250,6 +250,12 @@
                                             <Record Type="UI.DataField">
                                                 <PropertyValue Property="Value" Path="country_code"/>
                                             </Record>
+                                            <Record Type="UI.DataField">
+                                                <PropertyValue Property="Value" Path="email"/>
+                                            </Record>
+                                            <Record Type="UI.DataField">
+                                                <PropertyValue Property="Value" Path="phone"/>
+                                            </Record>
                                         </Collection>
                                     </PropertyValue>
                                 </Record>
@@ -257,450 +263,432 @@
                             <Annotation Term="UI.Facets">
                                 <Collection>
                                     <Record Type="UI.ReferenceFacet">
-                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#OverviewData"/>
-                                        <PropertyValue Property="Label" String="{i18n>DATA}"/>
+                                        <PropertyValue Property="Target" AnnotationPath="skills/@UI.LineItem"/>
+                                        <PropertyValue Property="Label" String="{i18n>SKILLS}"/>
                                         </Record>
                                         <Record Type="UI.ReferenceFacet">
-                                            <PropertyValue Property="Target" AnnotationPath="skills/@UI.LineItem"/>
-                                            <PropertyValue Property="Label" String="{i18n>SKILLS}"/>
+                                            <PropertyValue Property="Target" AnnotationPath="skills/@UI.Chart"/>
+                                            <PropertyValue Property="Label" String="{i18n>CHART}"/>
                                             </Record>
-                                            <Record Type="UI.ReferenceFacet">
-                                                <PropertyValue Property="Target" AnnotationPath="skills/@UI.Chart"/>
-                                                <PropertyValue Property="Label" String="{i18n>CHART}"/>
-                                                </Record>
-                                            </Collection>
-                                        </Annotation>
-                                        <Annotation Term="UI.FieldGroup" Qualifier="OverviewData">
-                                            <Record Type="UI.FieldGroupType">
-                                                <PropertyValue Property="Data">
-                                                    <Collection>
-                                                        <Record Type="UI.DataField">
-                                                            <PropertyValue Property="Value" Path="email"/>
-                                                        </Record>
-                                                        <Record Type="UI.DataField">
-                                                            <PropertyValue Property="Value" Path="phone"/>
-                                                        </Record>
-                                                    </Collection>
-                                                </PropertyValue>
-                                            </Record>
-                                        </Annotation>
+                                        </Collection>
+                                    </Annotation>
+                                </Annotations>
+                                <Annotations Target="resources.srv.app00.EntityContainer/Resources">
+                                    <Annotation Term="Capabilities.InsertRestrictions">
+                                        <Record Type="Capabilities.InsertRestrictionsType">
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </Annotation>
+                                    <Annotation Term="Capabilities.UpdateRestrictions">
+                                        <Record Type="Capabilities.UpdateRestrictionsType">
+                                            <PropertyValue Property="Updatable" Bool="true"/>
+                                        </Record>
+                                    </Annotation>
+                                    <Annotation Term="Capabilities.DeleteRestrictions">
+                                        <Record Type="Capabilities.DeleteRestrictionsType">
+                                            <PropertyValue Property="Deletable" Bool="false"/>
+                                        </Record>
+                                    </Annotation>
+                                    <Annotation Term="Common.DraftRoot">
+                                        <Record Type="Common.DraftRootType">
+                                            <PropertyValue Property="ActivationAction" String="resources.srv.app00.draftActivate"/>
+                                            <PropertyValue Property="EditAction" String="resources.srv.app00.draftEdit"/>
+                                            <PropertyValue Property="PreparationAction" String="resources.srv.app00.draftPrepare"/>
+                                        </Record>
+                                    </Annotation>
+                                </Annotations>
+                                <Annotations Target="resources.srv.app00.Resources/id">
+                                    <Annotation Term="Common.Label" String="{i18n>ID}"/>
                                     </Annotations>
-                                    <Annotations Target="resources.srv.app00.EntityContainer/Resources">
-                                        <Annotation Term="Capabilities.InsertRestrictions">
-                                            <Record Type="Capabilities.InsertRestrictionsType">
-                                                <PropertyValue Property="Insertable" Bool="false"/>
-                                            </Record>
-                                        </Annotation>
-                                        <Annotation Term="Capabilities.UpdateRestrictions">
-                                            <Record Type="Capabilities.UpdateRestrictionsType">
-                                                <PropertyValue Property="Updatable" Bool="true"/>
-                                            </Record>
-                                        </Annotation>
-                                        <Annotation Term="Capabilities.DeleteRestrictions">
-                                            <Record Type="Capabilities.DeleteRestrictionsType">
-                                                <PropertyValue Property="Deletable" Bool="false"/>
-                                            </Record>
-                                        </Annotation>
-                                        <Annotation Term="Common.DraftRoot">
-                                            <Record Type="Common.DraftRootType">
-                                                <PropertyValue Property="ActivationAction" String="resources.srv.app00.draftActivate"/>
-                                                <PropertyValue Property="EditAction" String="resources.srv.app00.draftEdit"/>
-                                                <PropertyValue Property="PreparationAction" String="resources.srv.app00.draftPrepare"/>
-                                            </Record>
-                                        </Annotation>
-                                    </Annotations>
-                                    <Annotations Target="resources.srv.app00.Resources/id">
-                                        <Annotation Term="Common.Label" String="{i18n>ID}"/>
+                                    <Annotations Target="resources.srv.app00.Resources/name">
+                                        <Annotation Term="Core.Immutable" Bool="true"/>
+                                        <Annotation Term="Common.Label" String="{i18n>NAME}"/>
                                         </Annotations>
-                                        <Annotations Target="resources.srv.app00.Resources/name">
-                                            <Annotation Term="Core.Immutable" Bool="true"/>
-                                            <Annotation Term="Common.Label" String="{i18n>NAME}"/>
+                                        <Annotations Target="resources.srv.app00.Resources/country">
+                                            <Annotation Term="Common.Label" String="{i18n>COUNTRY}"/>
                                             </Annotations>
-                                            <Annotations Target="resources.srv.app00.Resources/country">
+                                            <Annotations Target="resources.srv.app00.Resources/country_code">
+                                                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+                                                <Annotation Term="Common.Text" Path="country/name">
+                                                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
+                                                </Annotation>
                                                 <Annotation Term="Common.Label" String="{i18n>COUNTRY}"/>
-                                                </Annotations>
-                                                <Annotations Target="resources.srv.app00.Resources/country_code">
-                                                    <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
-                                                    <Annotation Term="Common.Text" Path="country/name">
-                                                        <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst"/>
-                                                    </Annotation>
-                                                    <Annotation Term="Common.Label" String="{i18n>COUNTRY}"/>
-                                                        <Annotation Term="Common.ValueList">
-                                                            <Record Type="Common.ValueListType">
-                                                                <PropertyValue Property="Label" String="{i18n>COUNTRY}"/>
-                                                                    <PropertyValue Property="CollectionPath" String="Countries"/>
-                                                                    <PropertyValue Property="Parameters">
-                                                                        <Collection>
-                                                                            <Record Type="Common.ValueListParameterInOut">
-                                                                                <PropertyValue Property="LocalDataProperty" PropertyPath="country_code"/>
-                                                                                <PropertyValue Property="ValueListProperty" String="code"/>
-                                                                            </Record>
-                                                                            <Record Type="Common.ValueListParameterDisplayOnly">
-                                                                                <PropertyValue Property="ValueListProperty" String="name"/>
-                                                                            </Record>
-                                                                        </Collection>
-                                                                    </PropertyValue>
-                                                                </Record>
-                                                            </Annotation>
-                                                            <Annotation Term="Core.Immutable" Bool="true"/>
-                                                        </Annotations>
-                                                        <Annotations Target="resources.srv.app00.Resources/phone">
-                                                            <Annotation Term="Communication.IsPhoneNumber" Bool="true"/>
-                                                            <Annotation Term="Common.Label" String="{i18n>PHONE}"/>
-                                                            </Annotations>
-                                                            <Annotations Target="resources.srv.app00.Resources/email">
-                                                                <Annotation Term="Communication.IsEmailAddress" Bool="true"/>
-                                                                <Annotation Term="Common.Label" String="{i18n>EMAIL}"/>
-                                                                    <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
-                                                                </Annotations>
-                                                                <Annotations Target="resources.srv.app00.Resources/IsActiveEntity">
-                                                                    <Annotation Term="UI.Hidden" Bool="true"/>
-                                                                </Annotations>
-                                                                <Annotations Target="resources.srv.app00.Resources/HasActiveEntity">
-                                                                    <Annotation Term="UI.Hidden" Bool="true"/>
-                                                                </Annotations>
-                                                                <Annotations Target="resources.srv.app00.Resources/HasDraftEntity">
-                                                                    <Annotation Term="UI.Hidden" Bool="true"/>
-                                                                </Annotations>
-                                                                <Annotations Target="resources.srv.app00.Resources/DraftAdministrativeData">
-                                                                    <Annotation Term="UI.Hidden" Bool="true"/>
-                                                                </Annotations>
-                                                                <Annotations Target="resources.srv.app00.Alta(resources.srv.app00.Resources)">
-                                                                    <Annotation Term="Common.IsActionCritical" Bool="true"/>
-                                                                </Annotations>
-                                                                <Annotations Target="resources.srv.app00.Alta(resources.srv.app00.Resources)/project">
-                                                                    <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
-                                                                    <Annotation Term="Common.ValueList">
-                                                                        <Record Type="Common.ValueListType">
-                                                                            <PropertyValue Property="CollectionPath" String="Projects"/>
-                                                                            <PropertyValue Property="Label" String=""/>
-                                                                            <PropertyValue Property="Parameters">
-                                                                                <Collection>
-                                                                                    <Record Type="Common.ValueListParameterInOut">
-                                                                                        <PropertyValue Property="LocalDataProperty" PropertyPath="project"/>
-                                                                                        <PropertyValue Property="ValueListProperty" String="id"/>
-                                                                                    </Record>
-                                                                                </Collection>
-                                                                            </PropertyValue>
+                                                    <Annotation Term="Common.ValueList">
+                                                        <Record Type="Common.ValueListType">
+                                                            <PropertyValue Property="Label" String="{i18n>COUNTRY}"/>
+                                                                <PropertyValue Property="CollectionPath" String="Countries"/>
+                                                                <PropertyValue Property="Parameters">
+                                                                    <Collection>
+                                                                        <Record Type="Common.ValueListParameterInOut">
+                                                                            <PropertyValue Property="LocalDataProperty" PropertyPath="country_code"/>
+                                                                            <PropertyValue Property="ValueListProperty" String="code"/>
                                                                         </Record>
-                                                                    </Annotation>
-                                                                    <Annotation Term="Common.Label" String="{i18n>PROJECT}"/>
-                                                                    </Annotations>
-                                                                    <Annotations Target="resources.srv.app00.Skills">
-                                                                        <Annotation Term="UI.LineItem">
+                                                                        <Record Type="Common.ValueListParameterDisplayOnly">
+                                                                            <PropertyValue Property="ValueListProperty" String="name"/>
+                                                                        </Record>
+                                                                    </Collection>
+                                                                </PropertyValue>
+                                                            </Record>
+                                                        </Annotation>
+                                                        <Annotation Term="Core.Immutable" Bool="true"/>
+                                                    </Annotations>
+                                                    <Annotations Target="resources.srv.app00.Resources/phone">
+                                                        <Annotation Term="Communication.IsPhoneNumber" Bool="true"/>
+                                                        <Annotation Term="Common.Label" String="{i18n>PHONE}"/>
+                                                        </Annotations>
+                                                        <Annotations Target="resources.srv.app00.Resources/email">
+                                                            <Annotation Term="Communication.IsEmailAddress" Bool="true"/>
+                                                            <Annotation Term="Common.Label" String="{i18n>EMAIL}"/>
+                                                                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+                                                            </Annotations>
+                                                            <Annotations Target="resources.srv.app00.Resources/IsActiveEntity">
+                                                                <Annotation Term="UI.Hidden" Bool="true"/>
+                                                            </Annotations>
+                                                            <Annotations Target="resources.srv.app00.Resources/HasActiveEntity">
+                                                                <Annotation Term="UI.Hidden" Bool="true"/>
+                                                            </Annotations>
+                                                            <Annotations Target="resources.srv.app00.Resources/HasDraftEntity">
+                                                                <Annotation Term="UI.Hidden" Bool="true"/>
+                                                            </Annotations>
+                                                            <Annotations Target="resources.srv.app00.Resources/DraftAdministrativeData">
+                                                                <Annotation Term="UI.Hidden" Bool="true"/>
+                                                            </Annotations>
+                                                            <Annotations Target="resources.srv.app00.Alta(resources.srv.app00.Resources)">
+                                                                <Annotation Term="Common.IsActionCritical" Bool="true"/>
+                                                            </Annotations>
+                                                            <Annotations Target="resources.srv.app00.Alta(resources.srv.app00.Resources)/project">
+                                                                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+                                                                <Annotation Term="Common.ValueList">
+                                                                    <Record Type="Common.ValueListType">
+                                                                        <PropertyValue Property="CollectionPath" String="Projects"/>
+                                                                        <PropertyValue Property="Label" String=""/>
+                                                                        <PropertyValue Property="Parameters">
                                                                             <Collection>
-                                                                                <Record Type="UI.DataField">
-                                                                                    <PropertyValue Property="Value" Path="area_code"/>
+                                                                                <Record Type="Common.ValueListParameterInOut">
+                                                                                    <PropertyValue Property="LocalDataProperty" PropertyPath="project"/>
+                                                                                    <PropertyValue Property="ValueListProperty" String="id"/>
                                                                                 </Record>
-                                                                                <Record Type="UI.DataField">
-                                                                                    <PropertyValue Property="Value" Path="area_descr"/>
+                                                                            </Collection>
+                                                                        </PropertyValue>
+                                                                    </Record>
+                                                                </Annotation>
+                                                                <Annotation Term="Common.Label" String="{i18n>PROJECT}"/>
+                                                                </Annotations>
+                                                                <Annotations Target="resources.srv.app00.Skills">
+                                                                    <Annotation Term="UI.LineItem">
+                                                                        <Collection>
+                                                                            <Record Type="UI.DataField">
+                                                                                <PropertyValue Property="Value" Path="area_code"/>
+                                                                            </Record>
+                                                                            <Record Type="UI.DataField">
+                                                                                <PropertyValue Property="Value" Path="area_descr"/>
+                                                                            </Record>
+                                                                            <Record Type="UI.DataFieldForAnnotation">
+                                                                                <PropertyValue Property="Label" String="{i18n>LEVEL}"/>
+                                                                                    <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#ratingIndicator"/>
+                                                                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                                                                                 </Record>
-                                                                                <Record Type="UI.DataFieldForAnnotation">
-                                                                                    <PropertyValue Property="Label" String="{i18n>LEVEL}"/>
-                                                                                        <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#ratingIndicator"/>
-                                                                                        <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
-                                                                                    </Record>
-                                                                                </Collection>
+                                                                            </Collection>
+                                                                        </Annotation>
+                                                                        <Annotation Term="UI.DataPoint" Qualifier="ratingIndicator">
+                                                                            <Record Type="UI.DataPointType">
+                                                                                <PropertyValue Property="Value" Path="level"/>
+                                                                                <PropertyValue Property="TargetValue" Int="5"/>
+                                                                                <PropertyValue Property="Visualization" EnumMember="UI.VisualizationType/Rating"/>
+                                                                                <PropertyValue Property="Title" String="{i18n>LEVEL}"/>
+                                                                                </Record>
                                                                             </Annotation>
-                                                                            <Annotation Term="UI.DataPoint" Qualifier="ratingIndicator">
-                                                                                <Record Type="UI.DataPointType">
-                                                                                    <PropertyValue Property="Value" Path="level"/>
-                                                                                    <PropertyValue Property="TargetValue" Int="5"/>
-                                                                                    <PropertyValue Property="Visualization" EnumMember="UI.VisualizationType/Rating"/>
-                                                                                    <PropertyValue Property="Title" String="{i18n>LEVEL}"/>
+                                                                            <Annotation Term="UI.Chart">
+                                                                                <Record Type="UI.ChartDefinitionType">
+                                                                                    <PropertyValue Property="Title" String="{i18n>LEVELCHART}"/>
+                                                                                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Pie"/>
+                                                                                        <PropertyValue Property="Measures">
+                                                                                            <Collection>
+                                                                                                <PropertyPath>sumAmount</PropertyPath>
+                                                                                            </Collection>
+                                                                                        </PropertyValue>
+                                                                                        <PropertyValue Property="Dimensions">
+                                                                                            <Collection>
+                                                                                                <PropertyPath>area_code</PropertyPath>
+                                                                                            </Collection>
+                                                                                        </PropertyValue>
+                                                                                        <PropertyValue Property="MeasureAttributes">
+                                                                                            <Collection>
+                                                                                                <Record Type="UI.ChartMeasureAttributeType">
+                                                                                                    <PropertyValue Property="Measure" PropertyPath="sumAmount"/>
+                                                                                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                                                                                </Record>
+                                                                                            </Collection>
+                                                                                        </PropertyValue>
+                                                                                        <PropertyValue Property="DimensionAttributes">
+                                                                                            <Collection>
+                                                                                                <Record Type="UI.ChartDimensionAttributeType">
+                                                                                                    <PropertyValue Property="Dimension" PropertyPath="area_code"/>
+                                                                                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                                                                                </Record>
+                                                                                            </Collection>
+                                                                                        </PropertyValue>
                                                                                     </Record>
                                                                                 </Annotation>
-                                                                                <Annotation Term="UI.Chart">
-                                                                                    <Record Type="UI.ChartDefinitionType">
-                                                                                        <PropertyValue Property="Title" String="{i18n>LEVELCHART}"/>
-                                                                                            <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Pie"/>
-                                                                                            <PropertyValue Property="Measures">
-                                                                                                <Collection>
-                                                                                                    <PropertyPath>sumAmount</PropertyPath>
-                                                                                                </Collection>
-                                                                                            </PropertyValue>
-                                                                                            <PropertyValue Property="Dimensions">
-                                                                                                <Collection>
-                                                                                                    <PropertyPath>area_code</PropertyPath>
-                                                                                                </Collection>
-                                                                                            </PropertyValue>
-                                                                                            <PropertyValue Property="MeasureAttributes">
-                                                                                                <Collection>
-                                                                                                    <Record Type="UI.ChartMeasureAttributeType">
-                                                                                                        <PropertyValue Property="Measure" PropertyPath="sumAmount"/>
-                                                                                                        <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
-                                                                                                    </Record>
-                                                                                                </Collection>
-                                                                                            </PropertyValue>
-                                                                                            <PropertyValue Property="DimensionAttributes">
-                                                                                                <Collection>
-                                                                                                    <Record Type="UI.ChartDimensionAttributeType">
-                                                                                                        <PropertyValue Property="Dimension" PropertyPath="area_code"/>
-                                                                                                        <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
-                                                                                                    </Record>
-                                                                                                </Collection>
-                                                                                            </PropertyValue>
+                                                                                <Annotation Term="Aggregation.ApplySupported">
+                                                                                    <Record Type="Aggregation.ApplySupportedType">
+                                                                                        <PropertyValue Property="Transformations">
+                                                                                            <Collection>
+                                                                                                <String>aggregate</String>
+                                                                                                <String>topcount</String>
+                                                                                                <String>bottomcount</String>
+                                                                                                <String>identity</String>
+                                                                                                <String>concat</String>
+                                                                                                <String>groupby</String>
+                                                                                                <String>filter</String>
+                                                                                                <String>expand</String>
+                                                                                                <String>top</String>
+                                                                                                <String>skip</String>
+                                                                                                <String>orderby</String>
+                                                                                                <String>search</String>
+                                                                                            </Collection>
+                                                                                        </PropertyValue>
+                                                                                        <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/None"/>
+                                                                                        <PropertyValue Property="PropertyRestrictions" Bool="true"/>
+                                                                                        <PropertyValue Property="GroupableProperties">
+                                                                                            <Collection>
+                                                                                                <PropertyPath>area_code</PropertyPath>
+                                                                                            </Collection>
+                                                                                        </PropertyValue>
+                                                                                        <PropertyValue Property="AggregatableProperties">
+                                                                                            <Collection>
+                                                                                                <Record Type="Aggregation.AggregatablePropertyType">
+                                                                                                    <PropertyValue Property="Property" PropertyPath="level"/>
+                                                                                                    <PropertyValue Property="RecommendedAggregationMethod" String="sum"/>
+                                                                                                    <PropertyValue Property="SupportedAggregationMethods">
+                                                                                                        <Collection>
+                                                                                                            <String>min</String>
+                                                                                                            <String>max</String>
+                                                                                                            <String>sum</String>
+                                                                                                        </Collection>
+                                                                                                    </PropertyValue>
+                                                                                                </Record>
+                                                                                            </Collection>
+                                                                                        </PropertyValue>
+                                                                                    </Record>
+                                                                                </Annotation>
+                                                                                <Annotation Term="Analytics.AggregatedProperties">
+                                                                                    <Collection>
+                                                                                        <Record Type="Analytics.AggregatedPropertyType">
+                                                                                            <PropertyValue Property="Name" String="minAmount"/>
+                                                                                            <PropertyValue Property="AggregationMethod" String="min"/>
+                                                                                            <PropertyValue Property="AggregatableProperty" PropertyPath="level"/>
+                                                                                            <Annotation Term="Common.Label" String="Minimal Level"/>
                                                                                         </Record>
-                                                                                    </Annotation>
-                                                                                    <Annotation Term="Aggregation.ApplySupported">
-                                                                                        <Record Type="Aggregation.ApplySupportedType">
-                                                                                            <PropertyValue Property="Transformations">
-                                                                                                <Collection>
-                                                                                                    <String>aggregate</String>
-                                                                                                    <String>topcount</String>
-                                                                                                    <String>bottomcount</String>
-                                                                                                    <String>identity</String>
-                                                                                                    <String>concat</String>
-                                                                                                    <String>groupby</String>
-                                                                                                    <String>filter</String>
-                                                                                                    <String>expand</String>
-                                                                                                    <String>top</String>
-                                                                                                    <String>skip</String>
-                                                                                                    <String>orderby</String>
-                                                                                                    <String>search</String>
-                                                                                                </Collection>
-                                                                                            </PropertyValue>
-                                                                                            <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/None"/>
-                                                                                            <PropertyValue Property="PropertyRestrictions" Bool="true"/>
-                                                                                            <PropertyValue Property="GroupableProperties">
-                                                                                                <Collection>
-                                                                                                    <PropertyPath>area_code</PropertyPath>
-                                                                                                </Collection>
-                                                                                            </PropertyValue>
-                                                                                            <PropertyValue Property="AggregatableProperties">
-                                                                                                <Collection>
-                                                                                                    <Record Type="Aggregation.AggregatablePropertyType">
-                                                                                                        <PropertyValue Property="Property" PropertyPath="level"/>
-                                                                                                        <PropertyValue Property="RecommendedAggregationMethod" String="sum"/>
-                                                                                                        <PropertyValue Property="SupportedAggregationMethods">
-                                                                                                            <Collection>
-                                                                                                                <String>min</String>
-                                                                                                                <String>max</String>
-                                                                                                                <String>sum</String>
-                                                                                                            </Collection>
-                                                                                                        </PropertyValue>
-                                                                                                    </Record>
-                                                                                                </Collection>
-                                                                                            </PropertyValue>
+                                                                                        <Record Type="Analytics.AggregatedPropertyType">
+                                                                                            <PropertyValue Property="Name" String="maxAmount"/>
+                                                                                            <PropertyValue Property="AggregationMethod" String="max"/>
+                                                                                            <PropertyValue Property="AggregatableProperty" PropertyPath="level"/>
+                                                                                            <Annotation Term="Common.Label" String="Maximun Level"/>
                                                                                         </Record>
-                                                                                    </Annotation>
-                                                                                    <Annotation Term="Analytics.AggregatedProperties">
-                                                                                        <Collection>
-                                                                                            <Record Type="Analytics.AggregatedPropertyType">
-                                                                                                <PropertyValue Property="Name" String="minAmount"/>
-                                                                                                <PropertyValue Property="AggregationMethod" String="min"/>
-                                                                                                <PropertyValue Property="AggregatableProperty" PropertyPath="level"/>
-                                                                                                <Annotation Term="Common.Label" String="Minimal Level"/>
-                                                                                            </Record>
-                                                                                            <Record Type="Analytics.AggregatedPropertyType">
-                                                                                                <PropertyValue Property="Name" String="maxAmount"/>
-                                                                                                <PropertyValue Property="AggregationMethod" String="max"/>
-                                                                                                <PropertyValue Property="AggregatableProperty" PropertyPath="level"/>
-                                                                                                <Annotation Term="Common.Label" String="Maximun Level"/>
-                                                                                            </Record>
-                                                                                            <Record Type="Analytics.AggregatedPropertyType">
-                                                                                                <PropertyValue Property="Name" String="sumAmount"/>
-                                                                                                <PropertyValue Property="AggregationMethod" String="sum"/>
-                                                                                                <PropertyValue Property="AggregatableProperty" PropertyPath="level"/>
-                                                                                                <Annotation Term="Common.Label" String="Level"/>
-                                                                                            </Record>
-                                                                                        </Collection>
-                                                                                    </Annotation>
+                                                                                        <Record Type="Analytics.AggregatedPropertyType">
+                                                                                            <PropertyValue Property="Name" String="sumAmount"/>
+                                                                                            <PropertyValue Property="AggregationMethod" String="sum"/>
+                                                                                            <PropertyValue Property="AggregatableProperty" PropertyPath="level"/>
+                                                                                            <Annotation Term="Common.Label" String="Level"/>
+                                                                                        </Record>
+                                                                                    </Collection>
+                                                                                </Annotation>
+                                                                            </Annotations>
+                                                                            <Annotations Target="resources.srv.app00.EntityContainer/Skills">
+                                                                                <Annotation Term="Aggregation.ApplySupported">
+                                                                                    <Record Type="Aggregation.ApplySupportedType">
+                                                                                        <PropertyValue Property="Transformations">
+                                                                                            <Collection>
+                                                                                                <String>aggregate</String>
+                                                                                                <String>topcount</String>
+                                                                                                <String>bottomcount</String>
+                                                                                                <String>identity</String>
+                                                                                                <String>concat</String>
+                                                                                                <String>groupby</String>
+                                                                                                <String>filter</String>
+                                                                                                <String>expand</String>
+                                                                                                <String>top</String>
+                                                                                                <String>skip</String>
+                                                                                                <String>orderby</String>
+                                                                                                <String>search</String>
+                                                                                            </Collection>
+                                                                                        </PropertyValue>
+                                                                                        <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/None"/>
+                                                                                        <PropertyValue Property="PropertyRestrictions" Bool="true"/>
+                                                                                        <PropertyValue Property="GroupableProperties">
+                                                                                            <Collection>
+                                                                                                <PropertyPath>area_code</PropertyPath>
+                                                                                            </Collection>
+                                                                                        </PropertyValue>
+                                                                                        <PropertyValue Property="AggregatableProperties">
+                                                                                            <Collection>
+                                                                                                <Record Type="Aggregation.AggregatablePropertyType">
+                                                                                                    <PropertyValue Property="Property" PropertyPath="level"/>
+                                                                                                    <PropertyValue Property="RecommendedAggregationMethod" String="sum"/>
+                                                                                                    <PropertyValue Property="SupportedAggregationMethods">
+                                                                                                        <Collection>
+                                                                                                            <String>min</String>
+                                                                                                            <String>max</String>
+                                                                                                            <String>sum</String>
+                                                                                                        </Collection>
+                                                                                                    </PropertyValue>
+                                                                                                </Record>
+                                                                                            </Collection>
+                                                                                        </PropertyValue>
+                                                                                    </Record>
+                                                                                </Annotation>
+                                                                                <Annotation Term="Common.DraftNode">
+                                                                                    <Record Type="Common.DraftNodeType">
+                                                                                        <PropertyValue Property="PreparationAction" String="resources.srv.app00.draftPrepare"/>
+                                                                                    </Record>
+                                                                                </Annotation>
+                                                                            </Annotations>
+                                                                            <Annotations Target="resources.srv.app00.Skills/area">
+                                                                                <Annotation Term="Common.Label" String="{i18n>AREA}"/>
                                                                                 </Annotations>
-                                                                                <Annotations Target="resources.srv.app00.EntityContainer/Skills">
-                                                                                    <Annotation Term="Aggregation.ApplySupported">
-                                                                                        <Record Type="Aggregation.ApplySupportedType">
-                                                                                            <PropertyValue Property="Transformations">
-                                                                                                <Collection>
-                                                                                                    <String>aggregate</String>
-                                                                                                    <String>topcount</String>
-                                                                                                    <String>bottomcount</String>
-                                                                                                    <String>identity</String>
-                                                                                                    <String>concat</String>
-                                                                                                    <String>groupby</String>
-                                                                                                    <String>filter</String>
-                                                                                                    <String>expand</String>
-                                                                                                    <String>top</String>
-                                                                                                    <String>skip</String>
-                                                                                                    <String>orderby</String>
-                                                                                                    <String>search</String>
-                                                                                                </Collection>
-                                                                                            </PropertyValue>
-                                                                                            <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/None"/>
-                                                                                            <PropertyValue Property="PropertyRestrictions" Bool="true"/>
-                                                                                            <PropertyValue Property="GroupableProperties">
-                                                                                                <Collection>
-                                                                                                    <PropertyPath>area_code</PropertyPath>
-                                                                                                </Collection>
-                                                                                            </PropertyValue>
-                                                                                            <PropertyValue Property="AggregatableProperties">
-                                                                                                <Collection>
-                                                                                                    <Record Type="Aggregation.AggregatablePropertyType">
-                                                                                                        <PropertyValue Property="Property" PropertyPath="level"/>
-                                                                                                        <PropertyValue Property="RecommendedAggregationMethod" String="sum"/>
-                                                                                                        <PropertyValue Property="SupportedAggregationMethods">
-                                                                                                            <Collection>
-                                                                                                                <String>min</String>
-                                                                                                                <String>max</String>
-                                                                                                                <String>sum</String>
-                                                                                                            </Collection>
-                                                                                                        </PropertyValue>
-                                                                                                    </Record>
-                                                                                                </Collection>
-                                                                                            </PropertyValue>
-                                                                                        </Record>
-                                                                                    </Annotation>
-                                                                                    <Annotation Term="Common.DraftNode">
-                                                                                        <Record Type="Common.DraftNodeType">
-                                                                                            <PropertyValue Property="PreparationAction" String="resources.srv.app00.draftPrepare"/>
-                                                                                        </Record>
-                                                                                    </Annotation>
-                                                                                </Annotations>
-                                                                                <Annotations Target="resources.srv.app00.Skills/area">
+                                                                                <Annotations Target="resources.srv.app00.Skills/area_code">
                                                                                     <Annotation Term="Common.Label" String="{i18n>AREA}"/>
-                                                                                    </Annotations>
-                                                                                    <Annotations Target="resources.srv.app00.Skills/area_code">
-                                                                                        <Annotation Term="Common.Label" String="{i18n>AREA}"/>
-                                                                                            <Annotation Term="Common.ValueList">
-                                                                                                <Record Type="Common.ValueListType">
-                                                                                                    <PropertyValue Property="Label" String="{i18n>AREA}"/>
-                                                                                                        <PropertyValue Property="CollectionPath" String="Areas"/>
-                                                                                                        <PropertyValue Property="Parameters">
-                                                                                                            <Collection>
-                                                                                                                <Record Type="Common.ValueListParameterInOut">
-                                                                                                                    <PropertyValue Property="LocalDataProperty" PropertyPath="area_code"/>
-                                                                                                                    <PropertyValue Property="ValueListProperty" String="code"/>
-                                                                                                                </Record>
-                                                                                                                <Record Type="Common.ValueListParameterDisplayOnly">
-                                                                                                                    <PropertyValue Property="ValueListProperty" String="name"/>
-                                                                                                                </Record>
-                                                                                                            </Collection>
-                                                                                                        </PropertyValue>
-                                                                                                    </Record>
-                                                                                                </Annotation>
+                                                                                        <Annotation Term="Common.ValueList">
+                                                                                            <Record Type="Common.ValueListType">
+                                                                                                <PropertyValue Property="Label" String="{i18n>AREA}"/>
+                                                                                                    <PropertyValue Property="CollectionPath" String="Areas"/>
+                                                                                                    <PropertyValue Property="Parameters">
+                                                                                                        <Collection>
+                                                                                                            <Record Type="Common.ValueListParameterInOut">
+                                                                                                                <PropertyValue Property="LocalDataProperty" PropertyPath="area_code"/>
+                                                                                                                <PropertyValue Property="ValueListProperty" String="code"/>
+                                                                                                            </Record>
+                                                                                                            <Record Type="Common.ValueListParameterDisplayOnly">
+                                                                                                                <PropertyValue Property="ValueListProperty" String="name"/>
+                                                                                                            </Record>
+                                                                                                        </Collection>
+                                                                                                    </PropertyValue>
+                                                                                                </Record>
+                                                                                            </Annotation>
+                                                                                        </Annotations>
+                                                                                        <Annotations Target="resources.srv.app00.Skills/level">
+                                                                                            <Annotation Term="Common.Label" String="{i18n>LEVEL}"/>
                                                                                             </Annotations>
-                                                                                            <Annotations Target="resources.srv.app00.Skills/level">
-                                                                                                <Annotation Term="Common.Label" String="{i18n>LEVEL}"/>
+                                                                                            <Annotations Target="resources.srv.app00.Skills/area_descr">
+                                                                                                <Annotation Term="Core.Computed" Bool="true"/>
+                                                                                                <Annotation Term="Common.Label" String="{i18n>Description}"/>
                                                                                                 </Annotations>
-                                                                                                <Annotations Target="resources.srv.app00.Skills/area_descr">
-                                                                                                    <Annotation Term="Core.Computed" Bool="true"/>
-                                                                                                    <Annotation Term="Common.Label" String="{i18n>Description}"/>
-                                                                                                    </Annotations>
-                                                                                                    <Annotations Target="resources.srv.app00.Skills/IsActiveEntity">
-                                                                                                        <Annotation Term="UI.Hidden" Bool="true"/>
-                                                                                                    </Annotations>
-                                                                                                    <Annotations Target="resources.srv.app00.Skills/HasActiveEntity">
-                                                                                                        <Annotation Term="UI.Hidden" Bool="true"/>
-                                                                                                    </Annotations>
-                                                                                                    <Annotations Target="resources.srv.app00.Skills/HasDraftEntity">
-                                                                                                        <Annotation Term="UI.Hidden" Bool="true"/>
-                                                                                                    </Annotations>
-                                                                                                    <Annotations Target="resources.srv.app00.Skills/DraftAdministrativeData">
-                                                                                                        <Annotation Term="UI.Hidden" Bool="true"/>
-                                                                                                    </Annotations>
-                                                                                                    <Annotations Target="resources.srv.app00.EntityContainer/Projects">
-                                                                                                        <Annotation Term="Capabilities.DeleteRestrictions">
-                                                                                                            <Record Type="Capabilities.DeleteRestrictionsType">
-                                                                                                                <PropertyValue Property="Deletable" Bool="false"/>
+                                                                                                <Annotations Target="resources.srv.app00.Skills/IsActiveEntity">
+                                                                                                    <Annotation Term="UI.Hidden" Bool="true"/>
+                                                                                                </Annotations>
+                                                                                                <Annotations Target="resources.srv.app00.Skills/HasActiveEntity">
+                                                                                                    <Annotation Term="UI.Hidden" Bool="true"/>
+                                                                                                </Annotations>
+                                                                                                <Annotations Target="resources.srv.app00.Skills/HasDraftEntity">
+                                                                                                    <Annotation Term="UI.Hidden" Bool="true"/>
+                                                                                                </Annotations>
+                                                                                                <Annotations Target="resources.srv.app00.Skills/DraftAdministrativeData">
+                                                                                                    <Annotation Term="UI.Hidden" Bool="true"/>
+                                                                                                </Annotations>
+                                                                                                <Annotations Target="resources.srv.app00.EntityContainer/Projects">
+                                                                                                    <Annotation Term="Capabilities.DeleteRestrictions">
+                                                                                                        <Record Type="Capabilities.DeleteRestrictionsType">
+                                                                                                            <PropertyValue Property="Deletable" Bool="false"/>
+                                                                                                        </Record>
+                                                                                                    </Annotation>
+                                                                                                    <Annotation Term="Capabilities.InsertRestrictions">
+                                                                                                        <Record Type="Capabilities.InsertRestrictionsType">
+                                                                                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                                                                                        </Record>
+                                                                                                    </Annotation>
+                                                                                                    <Annotation Term="Capabilities.UpdateRestrictions">
+                                                                                                        <Record Type="Capabilities.UpdateRestrictionsType">
+                                                                                                            <PropertyValue Property="Updatable" Bool="false"/>
+                                                                                                        </Record>
+                                                                                                    </Annotation>
+                                                                                                </Annotations>
+                                                                                                <Annotations Target="resources.srv.app00.Countries">
+                                                                                                    <Annotation Term="UI.Identification">
+                                                                                                        <Collection>
+                                                                                                            <Record Type="UI.DataField">
+                                                                                                                <PropertyValue Property="Value" Path="name"/>
                                                                                                             </Record>
-                                                                                                        </Annotation>
-                                                                                                        <Annotation Term="Capabilities.InsertRestrictions">
-                                                                                                            <Record Type="Capabilities.InsertRestrictionsType">
-                                                                                                                <PropertyValue Property="Insertable" Bool="false"/>
-                                                                                                            </Record>
-                                                                                                        </Annotation>
-                                                                                                        <Annotation Term="Capabilities.UpdateRestrictions">
-                                                                                                            <Record Type="Capabilities.UpdateRestrictionsType">
-                                                                                                                <PropertyValue Property="Updatable" Bool="false"/>
-                                                                                                            </Record>
-                                                                                                        </Annotation>
+                                                                                                        </Collection>
+                                                                                                    </Annotation>
+                                                                                                </Annotations>
+                                                                                                <Annotations Target="resources.srv.app00.Countries/name">
+                                                                                                    <Annotation Term="Common.Label" String="{i18n>Name}"/>
                                                                                                     </Annotations>
-                                                                                                    <Annotations Target="resources.srv.app00.Countries">
-                                                                                                        <Annotation Term="UI.Identification">
-                                                                                                            <Collection>
-                                                                                                                <Record Type="UI.DataField">
-                                                                                                                    <PropertyValue Property="Value" Path="name"/>
-                                                                                                                </Record>
-                                                                                                            </Collection>
-                                                                                                        </Annotation>
-                                                                                                    </Annotations>
-                                                                                                    <Annotations Target="resources.srv.app00.Countries/name">
-                                                                                                        <Annotation Term="Common.Label" String="{i18n>Name}"/>
+                                                                                                    <Annotations Target="resources.srv.app00.Countries/descr">
+                                                                                                        <Annotation Term="Common.Label" String="{i18n>Description}"/>
                                                                                                         </Annotations>
-                                                                                                        <Annotations Target="resources.srv.app00.Countries/descr">
-                                                                                                            <Annotation Term="Common.Label" String="{i18n>Description}"/>
+                                                                                                        <Annotations Target="resources.srv.app00.Countries/code">
+                                                                                                            <Annotation Term="Common.Text" Path="name"/>
+                                                                                                            <Annotation Term="Common.Label" String="{i18n>CountryCode}"/>
                                                                                                             </Annotations>
-                                                                                                            <Annotations Target="resources.srv.app00.Countries/code">
-                                                                                                                <Annotation Term="Common.Text" Path="name"/>
-                                                                                                                <Annotation Term="Common.Label" String="{i18n>CountryCode}"/>
+                                                                                                            <Annotations Target="resources.srv.app00.Areas">
+                                                                                                                <Annotation Term="UI.Identification">
+                                                                                                                    <Collection>
+                                                                                                                        <Record Type="UI.DataField">
+                                                                                                                            <PropertyValue Property="Value" Path="name"/>
+                                                                                                                        </Record>
+                                                                                                                    </Collection>
+                                                                                                                </Annotation>
+                                                                                                            </Annotations>
+                                                                                                            <Annotations Target="resources.srv.app00.Areas/name">
+                                                                                                                <Annotation Term="Common.Label" String="{i18n>Name}"/>
                                                                                                                 </Annotations>
-                                                                                                                <Annotations Target="resources.srv.app00.Areas">
-                                                                                                                    <Annotation Term="UI.Identification">
-                                                                                                                        <Collection>
-                                                                                                                            <Record Type="UI.DataField">
-                                                                                                                                <PropertyValue Property="Value" Path="name"/>
-                                                                                                                            </Record>
-                                                                                                                        </Collection>
-                                                                                                                    </Annotation>
-                                                                                                                </Annotations>
-                                                                                                                <Annotations Target="resources.srv.app00.Areas/name">
-                                                                                                                    <Annotation Term="Common.Label" String="{i18n>Name}"/>
+                                                                                                                <Annotations Target="resources.srv.app00.Areas/descr">
+                                                                                                                    <Annotation Term="Common.Label" String="{i18n>Description}"/>
                                                                                                                     </Annotations>
-                                                                                                                    <Annotations Target="resources.srv.app00.Areas/descr">
-                                                                                                                        <Annotation Term="Common.Label" String="{i18n>Description}"/>
+                                                                                                                    <Annotations Target="resources.srv.app00.DraftAdministrativeData">
+                                                                                                                        <Annotation Term="Common.Label" String="{i18n>Draft_DraftAdministrativeData}"/>
                                                                                                                         </Annotations>
-                                                                                                                        <Annotations Target="resources.srv.app00.DraftAdministrativeData">
-                                                                                                                            <Annotation Term="Common.Label" String="{i18n>Draft_DraftAdministrativeData}"/>
+                                                                                                                        <Annotations Target="resources.srv.app00.DraftAdministrativeData/DraftUUID">
+                                                                                                                            <Annotation Term="UI.Hidden" Bool="true"/>
+                                                                                                                            <Annotation Term="Common.Label" String="{i18n>Draft_DraftUUID}"/>
                                                                                                                             </Annotations>
-                                                                                                                            <Annotations Target="resources.srv.app00.DraftAdministrativeData/DraftUUID">
-                                                                                                                                <Annotation Term="UI.Hidden" Bool="true"/>
-                                                                                                                                <Annotation Term="Common.Label" String="{i18n>Draft_DraftUUID}"/>
+                                                                                                                            <Annotations Target="resources.srv.app00.DraftAdministrativeData/CreationDateTime">
+                                                                                                                                <Annotation Term="Common.Label" String="{i18n>Draft_CreationDateTime}"/>
                                                                                                                                 </Annotations>
-                                                                                                                                <Annotations Target="resources.srv.app00.DraftAdministrativeData/CreationDateTime">
-                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>Draft_CreationDateTime}"/>
+                                                                                                                                <Annotations Target="resources.srv.app00.DraftAdministrativeData/CreatedByUser">
+                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>Draft_CreatedByUser}"/>
                                                                                                                                     </Annotations>
-                                                                                                                                    <Annotations Target="resources.srv.app00.DraftAdministrativeData/CreatedByUser">
-                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>Draft_CreatedByUser}"/>
+                                                                                                                                    <Annotations Target="resources.srv.app00.DraftAdministrativeData/DraftIsCreatedByMe">
+                                                                                                                                        <Annotation Term="UI.Hidden" Bool="true"/>
+                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>Draft_DraftIsCreatedByMe}"/>
                                                                                                                                         </Annotations>
-                                                                                                                                        <Annotations Target="resources.srv.app00.DraftAdministrativeData/DraftIsCreatedByMe">
-                                                                                                                                            <Annotation Term="UI.Hidden" Bool="true"/>
-                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>Draft_DraftIsCreatedByMe}"/>
+                                                                                                                                        <Annotations Target="resources.srv.app00.DraftAdministrativeData/LastChangeDateTime">
+                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>Draft_LastChangeDateTime}"/>
                                                                                                                                             </Annotations>
-                                                                                                                                            <Annotations Target="resources.srv.app00.DraftAdministrativeData/LastChangeDateTime">
-                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>Draft_LastChangeDateTime}"/>
+                                                                                                                                            <Annotations Target="resources.srv.app00.DraftAdministrativeData/LastChangedByUser">
+                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>Draft_LastChangedByUser}"/>
                                                                                                                                                 </Annotations>
-                                                                                                                                                <Annotations Target="resources.srv.app00.DraftAdministrativeData/LastChangedByUser">
-                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>Draft_LastChangedByUser}"/>
+                                                                                                                                                <Annotations Target="resources.srv.app00.DraftAdministrativeData/InProcessByUser">
+                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>Draft_InProcessByUser}"/>
                                                                                                                                                     </Annotations>
-                                                                                                                                                    <Annotations Target="resources.srv.app00.DraftAdministrativeData/InProcessByUser">
-                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>Draft_InProcessByUser}"/>
+                                                                                                                                                    <Annotations Target="resources.srv.app00.DraftAdministrativeData/DraftIsProcessedByMe">
+                                                                                                                                                        <Annotation Term="UI.Hidden" Bool="true"/>
+                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>Draft_DraftIsProcessedByMe}"/>
                                                                                                                                                         </Annotations>
-                                                                                                                                                        <Annotations Target="resources.srv.app00.DraftAdministrativeData/DraftIsProcessedByMe">
-                                                                                                                                                            <Annotation Term="UI.Hidden" Bool="true"/>
-                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>Draft_DraftIsProcessedByMe}"/>
+                                                                                                                                                        <Annotations Target="resources.srv.app00.Countries_texts/locale">
+                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>LanguageCode}"/>
                                                                                                                                                             </Annotations>
-                                                                                                                                                            <Annotations Target="resources.srv.app00.Countries_texts/locale">
-                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>LanguageCode}"/>
+                                                                                                                                                            <Annotations Target="resources.srv.app00.Countries_texts/name">
+                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>Name}"/>
                                                                                                                                                                 </Annotations>
-                                                                                                                                                                <Annotations Target="resources.srv.app00.Countries_texts/name">
-                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>Name}"/>
+                                                                                                                                                                <Annotations Target="resources.srv.app00.Countries_texts/descr">
+                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>Description}"/>
                                                                                                                                                                     </Annotations>
-                                                                                                                                                                    <Annotations Target="resources.srv.app00.Countries_texts/descr">
-                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>Description}"/>
+                                                                                                                                                                    <Annotations Target="resources.srv.app00.Countries_texts/code">
+                                                                                                                                                                        <Annotation Term="Common.Text" Path="name"/>
+                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>CountryCode}"/>
                                                                                                                                                                         </Annotations>
-                                                                                                                                                                        <Annotations Target="resources.srv.app00.Countries_texts/code">
-                                                                                                                                                                            <Annotation Term="Common.Text" Path="name"/>
-                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>CountryCode}"/>
+                                                                                                                                                                        <Annotations Target="resources.srv.app00.Areas_texts/locale">
+                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>LanguageCode}"/>
                                                                                                                                                                             </Annotations>
-                                                                                                                                                                            <Annotations Target="resources.srv.app00.Areas_texts/locale">
-                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>LanguageCode}"/>
+                                                                                                                                                                            <Annotations Target="resources.srv.app00.Areas_texts/name">
+                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>Name}"/>
                                                                                                                                                                                 </Annotations>
-                                                                                                                                                                                <Annotations Target="resources.srv.app00.Areas_texts/name">
-                                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>Name}"/>
+                                                                                                                                                                                <Annotations Target="resources.srv.app00.Areas_texts/descr">
+                                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>Description}"/>
                                                                                                                                                                                     </Annotations>
-                                                                                                                                                                                    <Annotations Target="resources.srv.app00.Areas_texts/descr">
-                                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>Description}"/>
-                                                                                                                                                                                        </Annotations>
-                                                                                                                                                                                    </Schema>
-                                                                                                                                                                                </edmx:DataServices>
-                                                                                                                                                                            </edmx:Edmx>
+                                                                                                                                                                                </Schema>
+                                                                                                                                                                            </edmx:DataServices>
+                                                                                                                                                                        </edmx:Edmx>

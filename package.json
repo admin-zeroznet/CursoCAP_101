@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@sap/ux-specification": "^1.102.2",
+    "cds-swagger-ui-express": "^0.5.0",
     "sqlite3": "^5.0.2"
   },
   "scripts": {
@@ -43,6 +44,12 @@
     }
   },
   "cds": {
+    "i18n": {
+      "for_sqlite": [
+        "en",
+        "es"
+      ]
+    },
     "requires": {
       "auth": {
         "kind": "basic-auth",

@@ -2,6 +2,7 @@ namespace resources.srv;
 
 using { resources.db as DB  } from '../db/resources.db';
 
+@(path:'operaciones/control/v1')
 service app00 {
 
     @odata.draft.enabled
